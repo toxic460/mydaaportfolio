@@ -30,7 +30,7 @@
             background-color: #f9f9f9;
         }
         code {
-            display: block;
+            display: none;  /* Initially hide the code */
             background-color: #eef;
             padding: 10px;
             border-radius: 5px;
@@ -52,6 +52,18 @@
         tr:hover {
             background-color: #f1f1f1;
         }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -64,7 +76,7 @@
                     <th>Algorithm</th>
                     <th>Description</th>
                     <th>SDG Course</th>
-                    <th>Codes Related to Business Case Study</th>
+                    <th>View Code</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,8 +85,11 @@
                     <td>Quick Sort</td>
                     <td>Efficient sorting algorithm to organize land parcels based on factors like quality, size, or value to optimize land allocation.</td>
                     <td>SDG 11: Sustainable Cities and Communities</td>
-                    <td>
-                        <code>
+                    <td><button onclick="toggleCode('quickSortCode')">View Code</button></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <code id="quickSortCode">
                             def quick_sort(arr):<br>
                             &nbsp;&nbsp;&nbsp;if len(arr) <= 1:<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return arr<br>
@@ -93,8 +108,11 @@
                     <td>Bubble Sort</td>
                     <td>A simple sorting algorithm for arranging land prices or values in a particular order to assist in revenue management decisions.</td>
                     <td>SDG 8: Decent Work and Economic Growth</td>
-                    <td>
-                        <code>
+                    <td><button onclick="toggleCode('bubbleSortCode')">View Code</button></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <code id="bubbleSortCode">
                             def bubble_sort(arr):<br>
                             &nbsp;&nbsp;&nbsp;for i in range(len(arr)):<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(0, len(arr)-i-1):<br>
@@ -111,8 +129,11 @@
                     <td>DFS (Depth-First Search)</td>
                     <td>A graph traversal algorithm used for mapping land parcels, ensuring each parcel is visited based on its connected components.</td>
                     <td>SDG 15: Life on Land</td>
-                    <td>
-                        <code>
+                    <td><button onclick="toggleCode('dfsCode')">View Code</button></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <code id="dfsCode">
                             def dfs(graph, node, visited=None):<br>
                             &nbsp;&nbsp;&nbsp;if visited is None:<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited = set()<br>
@@ -130,8 +151,11 @@
                     <td>Dijkstra's Algorithm</td>
                     <td>A graph algorithm to find the shortest path for land use planning or identifying the best routes for land development.</td>
                     <td>SDG 9: Industry, Innovation, and Infrastructure</td>
-                    <td>
-                        <code>
+                    <td><button onclick="toggleCode('dijkstraCode')">View Code</button></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <code id="dijkstraCode">
                             import heapq<br><br>
                             def dijkstra(graph, start):<br>
                             &nbsp;&nbsp;&nbsp;queue = [(0, start)]<br>
@@ -149,30 +173,19 @@
                         </code>
                     </td>
                 </tr>
-                <tr>
-                    <td>Sustainability Impact Analysis</td>
-                    <td>Prim's Algorithm</td>
-                    <td>A minimum spanning tree algorithm to ensure sustainable land use by connecting all land parcels in the most efficient way.</td>
-                    <td>SDG 12: Responsible Consumption and Production</td>
-                    <td>
-                        <code>
-                            def prim(graph, start):<br>
-                            &nbsp;&nbsp;&nbsp;visited = set([start])<br>
-                            &nbsp;&nbsp;&nbsp;edges = [(cost, start, to) for to, cost in graph[start].items()]<br>
-                            &nbsp;&nbsp;&nbsp;heapq.heapify(edges)<br><br>
-                            &nbsp;&nbsp;&nbsp;while edges:<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cost, frm, to = heapq.heappop(edges)<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if to not in visited:<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited.add(to)<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for to_next, cost in graph[to].items():<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapq.heappush(edges, (cost, to, to_next))<br><br>
-                            graph = {'A': {'B': 1, 'C': 4}, 'B': {'A': 1, 'C': 2, 'D': 5}, 'C': {'A': 4, 'B': 2, 'D': 1}, 'D': {'B': 5, 'C': 1}}<br>
-                            prim(graph, 'A')
-                        </code>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
+
+    <script>
+        function toggleCode(codeId) {
+            var codeBlock = document.getElementById(codeId);
+            if (codeBlock.style.display === "none" || codeBlock.style.display === "") {
+                codeBlock.style.display = "block";
+            } else {
+                codeBlock.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
