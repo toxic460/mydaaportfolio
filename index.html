@@ -4,20 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #4CAF50;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        /* Header Buttons Styling */
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons button:hover {
+            background-color: #45a049;
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        /* Lists Styling */
+        ul {
+            list-style-type: none;
+            margin-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Links Styling */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Description List Styling */
+        dl {
+            margin-bottom: 30px;
+        }
+
+        dt {
+            font-weight: bold;
+            color: #333;
+        }
+
+        dd {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* Blockquote Styling */
+        blockquote {
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+            padding: 10px;
+            background-color: #eef;
+            border-left: 5px solid #4CAF50;
+        }
+
+        /* Contact Section Styling */
+        #contact {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #contact a {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            .header-buttons button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
+        <div class="header-buttons">
+            <button onclick="window.location.href='#about'">About Me</button>
+            <button onclick="window.location.href='#contact'">Contact</button>
+        </div>
         <h1>Hello, I'm Karthik 👋</h1>
         <p>I am passionate about technology and problem-solving. Here's a glimpse of my work:</p>
     </header>
 
-    <section>
+    <section id="about">
         <h2>🛠️ Projects</h2>
         <ul>
-            <li><strong>Project 1</strong>: A short description of your project1.</li>
-            
+            <li><strong>Project 1</strong>: A short description of your project 1.</li>
         </ul>
 
         <h2>🚀 Skills</h2>
@@ -29,8 +183,8 @@
 
         <h2>🌐 Find Me Online</h2>
         <ul>
-            <li><a href="https://github.com/your-github-username" target="https://github.com/toxic460">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/your-linkedin-profile" target="">LinkedIn</a></li>
+            <li><a href="https://github.com/your-github-username" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">LinkedIn</a></li>
         </ul>
 
         <h2>Portfolio Topic</h2>
@@ -58,6 +212,14 @@
         </dl>
 
         <blockquote>“The only way to do great work is to love what you do.” – Steve Jobs</blockquote>
+    </section>
+
+    <section id="contact">
+        <h2>📞 Contact</h2>
+        <p>If you would like to get in touch, please reach out via:</p>
+        <ul>
+            <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+        </ul>
     </section>
 </body>
 </html>
