@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Land Allocation and Revenue Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        code {
+            display: block;
+            background-color: #eef;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Smart Land Allocation and Revenue Management: Business Case Study</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subgroups</th>
+                    <th>Algorithm</th>
+                    <th>Description</th>
+                    <th>SDG Course</th>
+                    <th>Codes Related to Business Case Study</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Land Allocation Optimization</td>
+                    <td>Quick Sort</td>
+                    <td>Efficient sorting algorithm to organize land parcels based on factors like quality, size, or value to optimize land allocation.</td>
+                    <td>SDG 11: Sustainable Cities and Communities</td>
+                    <td>
+                        <code>
+                            def quick_sort(arr):<br>
+                            &nbsp;&nbsp;&nbsp;if len(arr) <= 1:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return arr<br>
+                            &nbsp;&nbsp;&nbsp;pivot = arr[len(arr) // 2]<br>
+                            &nbsp;&nbsp;&nbsp;left = [x for x in arr if x < pivot]<br>
+                            &nbsp;&nbsp;&nbsp;middle = [x for x in arr if x == pivot]<br>
+                            &nbsp;&nbsp;&nbsp;right = [x for x in arr if x > pivot]<br>
+                            &nbsp;&nbsp;&nbsp;return quick_sort(left) + middle + quick_sort(right)<br><br>
+                            arr = [3, 6, 8, 10, 1, 2, 1]<br>
+                            print(quick_sort(arr))
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revenue Management</td>
+                    <td>Bubble Sort</td>
+                    <td>A simple sorting algorithm for arranging land prices or values in a particular order to assist in revenue management decisions.</td>
+                    <td>SDG 8: Decent Work and Economic Growth</td>
+                    <td>
+                        <code>
+                            def bubble_sort(arr):<br>
+                            &nbsp;&nbsp;&nbsp;for i in range(len(arr)):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(0, len(arr)-i-1):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if arr[j] > arr[j+1]:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[j], arr[j+1] = arr[j+1], arr[j]<br><br>
+                            arr = [64, 34, 25, 12, 22, 11, 90]<br>
+                            bubble_sort(arr)<br>
+                            print(arr)
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Land Use Planning</td>
+                    <td>DFS (Depth-First Search)</td>
+                    <td>A graph traversal algorithm used for mapping land parcels, ensuring each parcel is visited based on its connected components.</td>
+                    <td>SDG 15: Life on Land</td>
+                    <td>
+                        <code>
+                            def dfs(graph, node, visited=None):<br>
+                            &nbsp;&nbsp;&nbsp;if visited is None:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited = set()<br>
+                            &nbsp;&nbsp;&nbsp;visited.add(node)<br>
+                            &nbsp;&nbsp;&nbsp;for neighbor in graph[node]:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if neighbor not in visited:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dfs(graph, neighbor, visited)<br><br>
+                            graph = {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'F'], 'D': ['B'], 'E': ['B', 'F'], 'F': ['C', 'E']}<br>
+                            dfs(graph, 'A')
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Demand Forecasting</td>
+                    <td>Dijkstra's Algorithm</td>
+                    <td>A graph algorithm to find the shortest path for land use planning or identifying the best routes for land development.</td>
+                    <td>SDG 9: Industry, Innovation, and Infrastructure</td>
+                    <td>
+                        <code>
+                            import heapq<br><br>
+                            def dijkstra(graph, start):<br>
+                            &nbsp;&nbsp;&nbsp;queue = [(0, start)]<br>
+                            &nbsp;&nbsp;&nbsp;distances = {node: float('inf') for node in graph}<br>
+                            &nbsp;&nbsp;&nbsp;distances[start] = 0<br><br>
+                            &nbsp;&nbsp;&nbsp;while queue:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_distance, current_node = heapq.heappop(queue)<br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for neighbor, weight in graph[current_node]:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distance = current_distance + weight<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if distance < distances[neighbor]:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distances[neighbor] = distance<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapq.heappush(queue, (distance, neighbor))<br><br>
+                            graph = {'A': [('B', 1), ('C', 4)], 'B': [('A', 1), ('C', 2), ('D', 5)], 'C': [('A', 4), ('B', 2), ('D', 1)], 'D': [('B', 5), ('C', 1)]}<br>
+                            print(dijkstra(graph, 'A'))
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sustainability Impact Analysis</td>
+                    <td>Prim's Algorithm</td>
+                    <td>A minimum spanning tree algorithm to ensure sustainable land use by connecting all land parcels in the most efficient way.</td>
+                    <td>SDG 12: Responsible Consumption and Production</td>
+                    <td>
+                        <code>
+                            def prim(graph, start):<br>
+                            &nbsp;&nbsp;&nbsp;visited = set([start])<br>
+                            &nbsp;&nbsp;&nbsp;edges = [(cost, start, to) for to, cost in graph[start].items()]<br>
+                            &nbsp;&nbsp;&nbsp;heapq.heapify(edges)<br><br>
+                            &nbsp;&nbsp;&nbsp;while edges:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cost, frm, to = heapq.heappop(edges)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if to not in visited:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited.add(to)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for to_next, cost in graph[to].items():<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapq.heappush(edges, (cost, to, to_next))<br><br>
+                            graph = {'A': {'B': 1, 'C': 4}, 'B': {'A': 1, 'C': 2, 'D': 5}, 'C': {'A': 4, 'B': 2, 'D': 1}, 'D': {'B': 5, 'C': 1}}<br>
+                            prim(graph, 'A')
+                        </code>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
