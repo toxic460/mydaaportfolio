@@ -24,10 +24,24 @@
 
         /* Header Styling */
         header {
-            text-align: center;
+            display: flex; /* Flexbox to align profile pic and text side by side */
+            align-items: center; /* Vertically align items in the center */
+            justify-content: center; /* Center the content */
+            gap: 20px; /* Space between profile image and text */
             margin-bottom: 40px;
             position: relative;
             animation: fadeIn 2s ease-in-out; /* Fade-in animation for header */
+        }
+
+        /* Profile Image Styling */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circular profile image */
+            object-fit: cover; /* Ensure the image fits within the circle */
+            border: 3px solid #4CAF50;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out; /* Fade-in for the image */
         }
 
         header h1 {
@@ -161,6 +175,11 @@
             .header-buttons button {
                 font-size: 0.9rem;
             }
+
+            header {
+                flex-direction: column; /* Stack items vertically on small screens */
+                text-align: center;
+            }
         }
 
         /* Animations */
@@ -177,18 +196,24 @@
 </head>
 <body>
     <header>
+        <!-- Profile Picture -->
+        <img class="profile-img" src="profile.jpg" alt="Karthik's Profile Picture"> <!-- Replace 'profile.jpg' with your image -->
+        
+        <div>
+            <h1>Hello, I'm Karthik 👋</h1>
+            <p>I am passionate about technology and problem-solving. Here's a glimpse of my work:</p>
+        </div>
+
         <div class="header-buttons">
             <button onclick="window.location.href='table.html'">Business case</button>
             <button onclick="window.location.href='cf.html'">Course Reflections</button>
         </div>
-        <h1>Hello, I'm Karthik 👋</h1>
-        <p>I am passionate about technology and problem-solving. Here's a glimpse of my work:</p>
     </header>
 
     <section id="about">
         <h2>🛠️ Projects</h2>
         <ul>
-            <li><strong>Project 1</strong>: URBAN MANAGEMENT SYSTEM :To create a smart system to manage a city effectively. It should make sure the city’s buildings, resources, and transport are used efficiently while improving people’s lives and protecting the environment..</li>
+            <li><strong>Project 1</strong>: URBAN MANAGEMENT SYSTEM : To create a smart system to manage a city effectively. It should make sure the city’s buildings, resources, and transport are used efficiently while improving people’s lives and protecting the environment..</li>
         </ul>
 
         <h2>🚀 Skills</h2>
@@ -228,6 +253,5 @@
             <dd>Smart City Design</dd>
         </dl>
     </section>
-
 </body>
 </html>
