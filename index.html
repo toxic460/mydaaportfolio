@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>3D Portfolio</title>
     <style>
         /* Reset default styles */
         * {
@@ -79,29 +79,44 @@
             color: #ecf0f1;
         }
 
-        /* Header Buttons Styling */
-        .header-buttons {
+        /* 3D Object Styling */
+        .computer, .phone {
+            perspective: 1000px;
+            margin: 50px;
+            position: relative;
+        }
+
+        .computer .object, .phone .object {
+            width: 200px;
+            height: 150px;
+            background-color: #34495e;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             position: absolute;
-            top: 20px;
-            right: 20px;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
         }
 
-        .header-buttons button {
+        .computer:hover .object, .phone:hover .object {
+            transform: rotateY(15deg) scale(1.1);
+        }
+
+        /* Card Effect for 3D Objects */
+        .object:before, .object:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-left: 10px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            transform: perspective(500px) rotateY(0deg);
+            border-radius: 10px;
+            opacity: 0.2;
         }
 
-        .header-buttons button:hover {
-            background-color: #45a049;
-            transform: translateY(-3px) rotateY(10deg);
+        .object:after {
+            background-color: rgba(0, 0, 0, 0.2);
+            opacity: 0.5;
         }
 
         /* Section Styling */
@@ -113,7 +128,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             animation: fadeIn 2s ease-in-out;
-            transform: perspective(500px) rotateX(10deg);
         }
 
         section h2 {
@@ -121,17 +135,6 @@
             margin-bottom: 20px;
             color: #4CAF50;
             animation: fadeIn 2s ease-in-out;
-        }
-
-        /* Lists Styling */
-        ul {
-            list-style-type: none;
-            margin-left: 20px;
-            margin-bottom: 30px;
-        }
-
-        ul li {
-            margin-bottom: 10px;
         }
 
         /* Links Styling */
@@ -142,21 +145,6 @@
         }
 
         a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Section Styling */
-        #contact {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        #contact a {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        #contact a:hover {
             text-decoration: underline;
         }
 
@@ -171,23 +159,27 @@
             100% { transform: translateX(0); opacity: 1; }
         }
 
-        /* 3D Effect on Hover */
-        .card {
-            perspective: 1000px;
-            margin: 20px;
-        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
 
-        .card-content {
-            transform-style: preserve-3d;
-            transition: transform 0.5s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
 
-        .card:hover .card-content {
-            transform: rotateY(15deg);
+            .computer .object, .phone .object {
+                width: 180px;
+                height: 120px;
+            }
+
+            section {
+                width: 100%;
+                margin: 20px;
+            }
         }
     </style>
 </head>
@@ -196,31 +188,23 @@
     <div class="background"></div>
 
     <header>
-        <!-- Profile Picture -->
         <img class="profile-img" src="my_pic.jpg" alt="Karthik's Profile Picture">
         
         <div>
             <h1>Hello, I'm Karthik 👋</h1>
             <p>I am passionate about technology and problem-solving. Here's a glimpse of my work:</p>
         </div>
-
-        <div class="header-buttons">
-            <button onclick="window.location.href='table.html'">Business case</button>
-            <button onclick="window.location.href='cf.html'">Course Reflections</button>
-        </div>
     </header>
 
     <section id="about">
         <h2>🛠️ Projects</h2>
         <ul>
-            <li><strong>Project 1</strong>: URBAN MANAGEMENT SYSTEM : To create a smart system to manage a city effectively. It should make sure the city’s buildings, resources, and transport are used efficiently while improving people’s lives and protecting the environment..</li>
+            <li><strong>Project 1</strong>: URBAN MANAGEMENT SYSTEM</li>
         </ul>
 
         <h2>🚀 Skills</h2>
         <ul>
             <li>C++, Python, JavaScript</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Web Development (React.js, Node.js)</li>
         </ul>
 
         <h2>🌐 Find Me Online</h2>
@@ -230,10 +214,18 @@
         </ul>
     </section>
 
-    <section class="card">
-        <div class="card-content">
-            <h2>3D Template Example</h2>
-            <p>This is a 3D animated template using CSS transform.</p>
+    <!-- 3D Objects Section -->
+    <section>
+        <h2>💻 3D Objects</h2>
+
+        <div class="computer">
+            <div class="object"></div>
+            <p>3D Computer</p>
+        </div>
+
+        <div class="phone">
+            <div class="object"></div>
+            <p>3D Phone</p>
         </div>
     </section>
 </body>
